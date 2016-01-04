@@ -1,18 +1,165 @@
 <html>
 	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
-    <script>
-      window.onload = function(){
+    <script type="text/javascript">
+    	window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
-      };
+	        
+
+	        var all_messages 		= window.geemails;
+	        var read_messages 		= 0;
+	        var unread_messages 	= 0;
+
+	       	// Initial filling         	
+	        unread_messages = all_messages.length;
+			initial_list_filling(all_messages);
+			
+	        
+
+
+	       function updateCounters(){
+	       // Displaying current number of all messages, read and unread messages
+	       		$(".inbox-counter").text(all_messages.length);
+		        $(".read-counter").text(read_messages);
+		        $(".unread-counter").text(unread_messages);
+	       };
+
+	       function initial_list_filling(messages){
+	       		for (var i = 0; i < messages.length; i++) {
+	        		var mail_date 		= messages[i].date;
+	        		var mail_subject 	= messages[i].subject;
+	        		var mail_sender 	= messages[i].sender;        		
+	        		$("#mail_list").append("<li class='unread_message'><h2>"+mail_subject+"</h2><h5>"+mail_date+"</h5><h4>"+mail_sender+"</h4></li>");
+	        	}
+	        	updateCounters();
+	       };
+
+
+			function updating_new_email (message) {
+				var mail_date 		= message.date;
+	        	var mail_subject 	= message.subject;
+	        	var mail_sender 	= message.sender;
+	        	
+	        	$("#mail_list").prepend("<li class='unread_message'><h2>"+mail_subject+"</h2><h5>"+mail_date+"</h5><h4>"+mail_sender+"</h4></li>");
+			};
+
+
+
+	        $("#mail_list li").click(function() {
+	        	var index = $(this).index();
+	        	$(this).removeClass("unread_message");
+	        	$(this).addClass("read_message");
+
+
+	        	$(".email_display").fadeIn(500).addClass('email_show');
+	        	$(".mail_list_body").fadeIn(1000).addClass('min_email_list');
+
+	        	
+	        	if (!all_messages[index].read) {
+	        		read_messages++;
+	        		unread_messages--;
+	        		all_messages[index].read = 1;
+	        	}
+	        	
+	        	updateCounters();
+
+	        	console.log(index);
+
+	        	var mail_date 		= all_messages[index].date;
+	        	var mail_subject 	= all_messages[index].subject;
+	        	var mail_sender 	= all_messages[index].sender;
+	        	var mail_body 		= all_messages[index].body;
+
+	        	$("#email_subject_disp").text(mail_subject);
+	        	$("#email_from_disp").text(mail_sender);
+	        	$("#email_date_disp").text(mail_date);
+	        	$("#email_content").text(mail_body);
+
+	        });
+
+	        // Transition of hide button - it hides the mail complete display
+	        $(".email_hide_button").click(function() {
+	        	$(".email_display").fadeOut(100).removeClass('email_show');
+	        	$(".mail_list_body").fadeIn(100).removeClass('min_email_list');
+	        	
+	        });
+
+	        var incoming_mail = setInterval(function(){ 
+
+	        	var new_mail = getNewMessage(); 
+	        	all_messages.unshift(new_mail);
+	        	var read_status		= new_mail.read;
+	        	if (read_status) {
+	        		read_messages++;
+	        	} else {
+	        		unread_messages++;
+	        	}
+	        	updateCounters();
+	        	updating_new_email(new_mail);
+	        	console.log(all_messages[0]);
+	        }, 5000);
+
+      	};
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
-			Build Me!
+			
+			<div class="main_header">
+				<div class="mail_title"> 
+					<img src="img/geemail_logo.png" />
+				</div>
+
+				<ul class="main_menu">
+					<li class="inbox_button">INBOX
+						<div class="counter inbox-counter">0</div>
+					</li>
+					<li class="read_button">READ
+						<div class="counter read-counter">0</div>
+					</li>
+					<li class="unread_button">UNREAD
+						<div class="counter unread-counter">0</div>
+					</li>
+
+				</ul>
+
+			</div>
+			<div class="mail_body">
+				<div class="mail_list_body">
+					<h1>              INBOX                 </h1>
+					<ul id="mail_list">
+						<!--Here goes the mail list (all inbox by default)-->
+				
+					</ul>
+				</div>
+				<div class="email_display">
+						<!--Here displays the selected full email -->
+						<div class="email_hide_button">
+							 > HIDE 			
+						</div>
+
+						<div class="email_header">
+							<ul>
+								<li>
+									<h1>Subject:</h1><h2 id="email_subject_disp"></h2>
+								</li>
+								<li>
+									<h1>From:</h1><h2 id="email_from_disp"></h2>
+								</li>
+								<li>
+									<h1>Date:</h1><h2 id="email_date_disp"></h2>
+								</li>
+							</ul>
+							<hr>
+							<p id="email_content"></p>
+						</div>
+										
+				</div>
+			</div>
+
 		</div>
 	</body>
 </html>

@@ -21,6 +21,7 @@ function generateMessage(date){
 	message.subject = getRandomElement(subject);
 	message.sender = getRandomElement(sender);
 	message.body = getRandomElement(body);
+	message.read = 0;
 	return message;
 }
 
@@ -41,6 +42,7 @@ function getRandomDate(){
 	var minutes = Math.floor(Math.random() * 59) + 1;
 	return new Date(year, month, day, hours, minutes);
 }
+
 
 //load intial GeeMail data to window object
 (function(){
