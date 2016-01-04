@@ -3,12 +3,11 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
-    <script type="text/javascript">
+    	<script type="text/javascript">
     	window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 	        
-
 	        var all_messages 		= window.geemails;
 	        var read_messages 		= 0;
 	        var unread_messages 	= 0;
@@ -16,10 +15,7 @@
 	       	// Initial filling         	
 	        unread_messages = all_messages.length;
 			initial_list_filling(all_messages);
-			
-	        
-
-
+	
 	       function updateCounters(){
 	       // Displaying current number of all messages, read and unread messages
 	       		$(".inbox-counter").text(all_messages.length);
@@ -39,6 +35,7 @@
 
 
 			function updating_new_email (message) {
+			// Adding new email to the list display
 				var mail_date 		= message.date;
 	        	var mail_subject 	= message.subject;
 	        	var mail_sender 	= message.sender;
@@ -49,6 +46,8 @@
 
 
 	        $("#mail_list li").click(function() {
+	        // if email clicked, it this displays the email content. Also it changes the status
+	        // from unread to read (background color and counters)
 	        	var index = $(this).index();
 	        	$(this).removeClass("unread_message");
 	        	$(this).addClass("read_message");
@@ -57,7 +56,8 @@
 	        	$(".email_display").fadeIn(500).addClass('email_show');
 	        	$(".mail_list_body").fadeIn(1000).addClass('min_email_list');
 
-	        	
+	        	// Checking email status in case you are only reviewing a read email
+	        	// so there's no need in status changing
 	        	if (!all_messages[index].read) {
 	        		read_messages++;
 	        		unread_messages--;
@@ -66,13 +66,16 @@
 	        	
 	        	updateCounters();
 
+	        	// debugging
 	        	console.log(index);
 
+	        	// Getting email content 
 	        	var mail_date 		= all_messages[index].date;
 	        	var mail_subject 	= all_messages[index].subject;
 	        	var mail_sender 	= all_messages[index].sender;
 	        	var mail_body 		= all_messages[index].body;
 
+	        	// Displaying email content
 	        	$("#email_subject_disp").text(mail_subject);
 	        	$("#email_from_disp").text(mail_sender);
 	        	$("#email_date_disp").text(mail_date);
@@ -87,6 +90,7 @@
 	        	
 	        });
 
+	        // Incoming email --- there is a new email every 5 seconds
 	        var incoming_mail = setInterval(function(){ 
 
 	        	var new_mail = getNewMessage(); 

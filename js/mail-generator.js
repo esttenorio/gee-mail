@@ -21,7 +21,7 @@ function generateMessage(date){
 	message.subject = getRandomElement(subject);
 	message.sender = getRandomElement(sender);
 	message.body = getRandomElement(body);
-	message.read = 0;
+	message.read = 0;									// New 'read' attribute added to identify read and unread email
 	return message;
 }
 
