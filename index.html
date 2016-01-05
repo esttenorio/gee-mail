@@ -28,7 +28,7 @@
 	        		var mail_date 		= messages[i].date;
 	        		var mail_subject 	= messages[i].subject;
 	        		var mail_sender 	= messages[i].sender;        		
-	        		$("#mail_list").append("<li class='unread_message'><h2>"+mail_subject+"</h2><h5>"+mail_date+"</h5><h4>"+mail_sender+"</h4></li>");
+	        		$("#mail_list").append("<li class='unread_message message'><h2>"+mail_subject+"</h2><h5>"+mail_date+"</h5><h4>"+mail_sender+"</h4></li>");
 	        	}
 	        	updateCounters();
 	       };
@@ -40,12 +40,11 @@
 	        	var mail_subject 	= message.subject;
 	        	var mail_sender 	= message.sender;
 	        	
-	        	$("#mail_list").prepend("<li class='unread_message'><h2>"+mail_subject+"</h2><h5>"+mail_date+"</h5><h4>"+mail_sender+"</h4></li>");
+	        	$("#mail_list").prepend("<li class='unread_message message'><h2>"+mail_subject+"</h2><h5>"+mail_date+"</h5><h4>"+mail_sender+"</h4></li>");
 			};
-
-
-
-	        $("#mail_list li").click(function() {
+	        
+	        
+	       	$(document).on("click", ".message", function(){
 	        // if email clicked, it this displays the email content. Also it changes the status
 	        // from unread to read (background color and counters)
 	        	var index = $(this).index();
