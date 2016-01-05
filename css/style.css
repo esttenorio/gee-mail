@@ -1,213 +1,211 @@
 .container {
-	background-color: #FFFFFF;
-	font-family: Calibri;
+	background-color: 	#FFFFFF;
+	font-family: 		Calibri;
 }
 
 .main_header {
-	display: inline-block;
-	width: 100%;
-	position: fixed;
-	background-color: #FFFFFF
+	display: 			inline-block;
+	width: 				100%;
+	position: 			fixed;
+	background-color: 	#FFFFFF
 }
 
 
 .mail_title {
-	float: left;
-	background-color: #FFFFFF;
-	width: 10%;
-	height: auto;
-	border-top: 0px;
+	float: 				left;
+	background-color: 	#FFFFFF;
+	width: 				10%;
+	height: 			auto;
+	border-top: 		0px;
 }
 
 .mail_title img{
-	width: 	150px;
-	height: auto;
-	
+	width: 				150px;
+	height: 			auto;
 }
 
-
 .main_menu {
-	float: right;
-	background-color: #97ABA9;
-	display: inline-block;
-	width: 80%;
-	height: 50px;
+	float: 				right;
+	background-color: 	#97ABA9;
+	display: 			inline-block;
+	width: 				80%;
+	height: 			50px;
 
 }
 
 .main_menu li {
-	display: inline-block;
-	border-radius: 0px;
-	font-size: 15px;
-	text-decoration: none;
-	/*font-family: Arial;*/
-	font-weight: bold;
-	width: 27%;
-	vertical-align: middle;
-	padding: 5px 5px 5px 5px;
-	color: #ffffff;
-	border: solid #FFFFFF 3px;
+	display: 			inline-block;
+	border-radius: 		0px;
+	font-size: 			15px;
+	text-decoration: 	none;
+	/*font-family: 		Arial;*/
+	font-weight: 		bold;
+	width: 				27%;
+	vertical-align: 	middle;
+	padding: 			5px 5px 5px 5px;
+	color: 				#ffffff;
+	border: 			solid #FFFFFF 3px;
 }
 
 .main_menu li:hover{
-	background-color: #FFFFFF;
-	text-decoration: none;
+	background-color: 	#FFFFFF;
+	text-decoration: 	none;
 }
 
 
 .inbox_button{
-	background-color: #CB5F28;
+	background-color: 	#CB5F28;
 }
 
 .inbox_button:hover{
-	color: #CB5F28;;
-	border: solid #CB5F28; 3px;
+	color: 				#CB5F28;
+	border: 			solid #CB5F28 3px;
 }
 
 .read_button{
-	background-color: #43C7F4;
+	background-color: 	#43C7F4;
 }
 
 .read_button:hover{
-	color: #43C7F4;
-	border: solid #43C7F4; 3px;
+	color: 				#43C7F4;
+	border: 			solid #43C7F4 3px;
 }
 
 .unread_button{
-	background-color: #D2D2D2;
+	background-color: 	#D2D2D2;
 }
 
 .unread_button:hover{
-	color: #D2D2D2;
-	border: solid #D2D2D2 3px;
+	color: 				#D2D2D2;
+	border: 			solid #D2D2D2 3px;
 }
 
 
 .mail_body{
-	display: inline-block;
-	vertical-align: top;
-	width: 100%;
+	display: 			inline-block;
+	vertical-align: 	top;
+	width: 				100%;
 }
 
 .mail_list_body{
-	display: inline;
-	vertical-align: top;
-	float: left;
-	margin-top: 150px;
-	width: 100%;
-
+	display: 			inline;
+	vertical-align: 	top;
+	float: 				left;
+	margin-top: 		150px;
+	width: 				100%;
 }
 
-.mail_list_body h1{
-	position: fixed;
-	vertical-align: top;
-	text-align: center;
-	margin-top: 0px;
-	margin-left: 0px;
-	-moz-transform: rotate(-90deg);	
-	line-height: 2em;
-	background-color: #43C7F4;;
-	color: #FFFFFF;
-	/*width: 100px;
-	height :1000px;*/
-
+#inbox_box{
+	position: 			fixed;
+	vertical-align: 	top;
+	text-align: 		left;
+	margin-top: 		0px;
+	margin-left: 		0px;
+	-moz-transform: 	rotate(-90deg);
+	-webkit-transform: 	rotate(-90deg);
+	line-height: 		2em;
+	color: 				#43C7F4;
+	width: 				100px;
+	font-size: 			30px;
+	font-weight: 		bold;
 }
 
 .mail_list_body ul{
-	padding-left: 5em;
+	padding-left: 		5em;
 	border-right-color: #FFFFFF; 
 }
 
 #mail_list li{
-	list-style-type: none;
-	border-style: solid;
-	/*background-color: #E3E3E3;*/
-	line-height: 0.5em
+	list-style-type: 	none;
+	border-style: 		solid;
+	line-height: 		0.5em
 }
 
 #mail_list li:hover {
-	list-style-type: none;
-	border-style: solid;
-	background-color: #CB5F28;;
-	cursor: pointer;
+	list-style-type: 	none;
+	border-style: 		solid;
+	background-color: 	#CB5F28;;
+	cursor: 			pointer;
 }
 
 
 .selected_email {
 
-	background-color: #BBBDBF;
+	background-color: 	#BBBDBF;
 
 }
 
 .email_display {
-	display: none;
-	vertical-align: top;
-	background-color: #FFFFFF;
-	position: fixed;
-	left: 40em;
-	top: 10em;
-	padding: 10px 10px 10px 5px;
+	display: 			none;
+	vertical-align: 	top;
+	background-color: 	#FFFFFF;
+	position: 			fixed;
+	float: 				right;
+	width: 				50%;
+	top: 				10em;
+	padding: 			10px 10px 10px 5px;
 }
 
 .email_hide_button {
-	float: right;
-	font-size: 20px;
-	font-weight: bold;
+	float: 				right;
+	font-size: 			20px;
+	font-weight: 		bold;
 }
 
 .email_hide_button:hover {
-	color: #43C7F4;
-	cursor: pointer;
+	color: 				#43C7F4;
+	cursor: 			pointer;
 }
 
 .email_header h1 {
-	font-size: 15px;
-	font-weight: bold;
-	display: inline;
-	float:left;
-    clear:left;
-	padding: 0px 30px 0px 0px;
-	width: 3em;
+	font-size: 			15px;
+	font-weight: 		bold;
+	display: 			inline;
+	float:				left;
+    clear:				left;
+	padding: 			0px 30px 0px 0px;
+	width: 				3em;
 
 }
 
 .email_header ul{
-	list-style-type: none;
+	list-style-type: 	none;
 }
 
 .email_header h2 {
-	font-size: 17px;
-	font-weight: normal;
-	display: inline-block;
-	
+	font-size: 			17px;
+	font-weight: 		normal;
+	display: 			inline-block;
 }
 
 #email_subject_disp{
-	font-weight: bolder;
+	font-weight: 		bolder;
 }
 
 #email_content {
-	font-size: 15px;	
+	font-size: 			15px;	
 }
 
 .min_email_list {
-	width: 35%;
+	width: 				35%;
 }
 
 .email_show {
-	display: inline-block;
-	vertical-align: top;
-	background-color: #FFFFFF;
-	position: fixed;
-	width: 50em;
-	top: 10em;
+	display: 			inline-block;
+	vertical-align: 	top;
+	background-color: 	#FFFFFF;
+	position: 			fixed;
+	float: 				right;
+	width: 				60%;
+	right: 				10px;
+	top: 				10em;
 }
 
 .read_message{
-	background-color: #707070;
+	background-color: 	#707070;
 }
 
 .unread_message{
-	background-color: #E3E3E3;
+	background-color: 	#E3E3E3;
 }
 
